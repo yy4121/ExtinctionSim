@@ -103,14 +103,14 @@ errModel_clean = LsstErrorModel(nYrObs=10,
 
 """Band filter and SED"""
 
-from astropy.table import Table
-lsst_filter = {}
-for i in "ugrizy":
-    item ={}
-    filter = Table.read("http://svo2.cab.inta-csic.es/theory/fps/fps.php?ID=LSST/LSST.{}".format(i))
-    item["wl"] = np.array(filter["Wavelength"].value)*u.AA
-    item["F_trans"] = np.array(filter["Transmission"].value)
-    lsst_filter[i] = item
+# from astropy.table import Table
+# lsst_filter = {}
+# for i in "ugrizy":
+#     item ={}
+#     filter = Table.read("http://svo2.cab.inta-csic.es/theory/fps/fps.php?ID=LSST/LSST.{}".format(i))
+#     item["wl"] = np.array(filter["Wavelength"].value)*u.AA
+#     item["F_trans"] = np.array(filter["Transmission"].value)
+#     lsst_filter[i] = item
 
 SED_wl = np.loadtxt("../../data/model_import_data/SED/LAMBDA_SLN.DAT") * u.AA
 SED1 = np.loadtxt("../../data/model_import_data/SED/T07000G45M05V000K2ANWNVR20N.ASCR")
