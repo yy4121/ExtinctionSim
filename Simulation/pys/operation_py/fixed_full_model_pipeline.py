@@ -42,8 +42,10 @@ def generate_sim():
     dust_completed = St.sim_data(results['dust'][:,:,1:-1], obs_f["mask"], print_ = True)
     dust_obs_cl = np.array(dust_completed.cl_photoz_shell([0, 1, 2, 3, 4], 1024)).reshape(-1)
     save_large_array_to_csv(file_name, dust_obs_cl)
+    return None
 
 
 if __name__ == "__main__":
-    for i in tqdm.tqdm(range(1)):
+    for i in range(100):
+        print(i)
         generate_sim()
